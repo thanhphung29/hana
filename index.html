@@ -24,7 +24,7 @@
     body {
       background:
         linear-gradient(rgba(10, 10, 12, .35), rgba(10, 10, 12, .35)),
-        url('assets/wood-bg.png') center center / cover no-repeat fixed,
+        url('assets/wood-bg2.webp') center center / cover no-repeat fixed,
         #0A0A0C;
       color: #E2D8C2;
       font-family: 'Inter', sans-serif;
@@ -34,15 +34,15 @@
     }
 
     /* ── SECTION DIVIDERS (gold) ── */
-    body > section:not(#hero),
-    body > .par,
-    body > footer {
+    body>section:not(#hero),
+    body>.par,
+    body>footer {
       position: relative
     }
 
-    body > section:not(#hero)::before,
-    body > .par::before,
-    body > footer::before {
+    body>section:not(#hero)::before,
+    body>.par::before,
+    body>footer::before {
       content: '';
       position: absolute;
       top: 0;
@@ -390,10 +390,24 @@
     }
 
     .h-par img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 110%;
       object-fit: cover;
-      object-position: center 40%
+      object-position: center 40%;
+      opacity: 0;
+      animation: hero-cycle 10s infinite
+    }
+
+    .h-par img:nth-child(2) {
+      animation-delay: 5s
+    }
+
+    @keyframes hero-cycle {
+      0%, 45% { opacity: 1 }
+      50%, 95% { opacity: 0 }
+      100% { opacity: 1 }
     }
 
     .h-dim {
@@ -2160,8 +2174,10 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="h-par" id="hpar"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1800&q=85"
-        alt="Wagyu trên than hoa"></div>
+    <div class="h-par" id="hpar">
+      <img src="./assets/bo-wagyu2.png" alt="Wagyu trên than hoa">
+      <img src="./assets/lau-shabu.png" alt="Wagyu trên than hoa">
+    </div>
     <div class="h-dim"></div>
     <div class="h-body">
       <p class="h-kk" data-t="hero_kk">Wagyu Nướng Than Hoa & Shabu Shabu · Hà Nội</p>
