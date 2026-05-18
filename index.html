@@ -602,6 +602,115 @@
       }
     }
 
+    /* ── EMBER SPARKS ── */
+    .sparks {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 75%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1
+    }
+
+    .spk {
+      position: absolute;
+      bottom: -6px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #ffd17a;
+      box-shadow: 0 0 6px 1px rgba(255, 170, 60, .9), 0 0 14px 2px rgba(255, 110, 30, .45);
+      opacity: 0;
+      will-change: transform, opacity;
+      animation: spk-rise var(--dur, 3s) ease-out forwards
+    }
+
+    @keyframes spk-rise {
+      0% {
+        transform: translate(0, 0) scale(.5);
+        opacity: 0
+      }
+
+      10% {
+        opacity: 1
+      }
+
+      70% {
+        opacity: .85
+      }
+
+      100% {
+        transform: translate(var(--dx, 0px), var(--dy, -260px)) scale(.15);
+        opacity: 0
+      }
+    }
+
+    /* ── ICON STEAM (above 🍲 emoji) ── */
+    .emo-stm {
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, .75) 0%, rgba(255, 255, 255, .25) 50%, transparent 75%);
+      filter: blur(3px);
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: emo-stm-rise var(--dur, 1.8s) ease-out forwards
+    }
+
+    @keyframes emo-stm-rise {
+      0% {
+        transform: translate(0, 4px) scale(.4);
+        opacity: 0
+      }
+
+      15% {
+        opacity: .9
+      }
+
+      100% {
+        transform: translate(var(--dx, 0px), -42px) scale(2.4);
+        opacity: 0
+      }
+    }
+
+    /* ── ICON SPARKS (above 🔥 emoji) ── */
+    .emo-spk {
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      border-radius: 50%;
+      background: #ffd17a;
+      box-shadow: 0 0 5px 1px rgba(255, 170, 60, .9), 0 0 10px 2px rgba(255, 110, 30, .5);
+      opacity: 0;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: emo-spk-rise var(--dur, 1.6s) ease-out forwards
+    }
+
+    @keyframes emo-spk-rise {
+      0% {
+        transform: translate(0, 0) scale(.5);
+        opacity: 0
+      }
+
+      15% {
+        opacity: 1
+      }
+
+      80% {
+        opacity: .85
+      }
+
+      100% {
+        transform: translate(var(--dx, 0px), -54px) scale(.2);
+        opacity: 0
+      }
+    }
+
     /* ── USP STRIP ── */
     #ustrip {
       background: transparent
@@ -906,6 +1015,15 @@
       color: #0A0A0C;
       border-color: var(--gold);
       z-index: 1;
+      position: relative
+    }
+
+    .emo {
+      font-size: 1.8em;
+      line-height: 0;
+      vertical-align: -.22em;
+      margin-right: 4px;
+      display: inline-block;
       position: relative
     }
 
@@ -1824,7 +1942,7 @@
         wc2_num: '02 — Kỹ thuật', wc2_h: 'Ủ chín lên men (Aging)', wc2_p: 'Protein phân giải thành axit amin nhờ enzym — vị umami tăng gấp bội, thịt mềm mượt và toả hương tinh tế.',
         wc3_num: '03 — Phong cách', wc3_h: 'Nướng than hoa Nhật Bản', wc3_p: 'Bếp than hoa chuẩn Nhật tại mỗi bàn — nhiệt ổn định, không hoá chất, tôn lên hương thơm tự nhiên của Wagyu A5.',
         menu_stag: 'Wagyu · Shabu & BBQ', menu_h: 'Thực <em>Đơn</em>', menu_sub: 'Thực đơn áp dụng ngày thường · Giá chưa bao gồm thuế · Trọng lượng tính theo phần thịt',
-        tab_shabu: '🍲 Lẩu Shabu Shabu', tab_bbq: '🔥 BBQ Nướng Than Hoa',
+        tab_shabu: '<span class="emo">🍲</span> Lẩu Shabu Shabu', tab_bbq: '<span class="emo">🔥</span> BBQ Nướng Than Hoa',
         set_std: 'Standard', set_dlx: 'Deluxe', set_prm: 'Premium', set_spc: 'Special',
         shabu_std_d: 'Khai vị 3 loại · Sushi bò Wagyu · Rau lẩu thập cẩm · Thịt đỏ 2 loại · Cơm · Súp · Tráng miệng',
         shabu_dlx_d: 'Khai vị 3 loại · Sushi bò Wagyu · Wagyu vân mỡ 2 loại · Thịt đỏ 2 loại · Cơm · Súp · Tráng miệng',
@@ -1863,7 +1981,7 @@
         footer_shabu: 'Lẩu Shabu Shabu', footer_bbq: 'BBQ Nướng Than Hoa',
         grade1: 'A5 — Hạng tối đa', grade2: 'Aging premium', grade3: 'Bếp than riêng mỗi bàn',
         scroll_hint: 'Scroll', omk_stamp: 'Đề<br>Cử',
-        tab_others: '🍽️ Khác',
+        tab_others: '<span class="emo">🍽️</span> Khác',
         others_app: 'Khai vị & Salad', others_app_desc: 'Kimchi · Yukke · Đậu hũ · Namul · Yuba · Salad Roast Beef...', others_app_from: 'Từ 65K',
         others_lunch: 'Menu Bữa Trưa', others_lunch_desc: 'Set Lẩu · Set BBQ · Set Steak · Set Cơm · 11 set đặc biệt', others_lunch_from: 'Từ 160K',
         others_drinks: 'Thức uống & Tráng miệng', others_drinks_desc: 'Whiskey Nhật · Shochu · Rượu Mơ · Bia · Không cồn · Mochi...', others_drinks_from: 'Từ 35K',
@@ -1890,7 +2008,7 @@
         wc2_num: '02 — Technique', wc2_h: 'Wet-ageing process', wc2_p: 'Enzymatic breakdown of proteins into amino acids — multiplied umami depth, silky tenderness and a subtly fragrant aroma.',
         wc3_num: '03 — Style', wc3_h: 'Japanese charcoal grilling', wc3_p: 'Dedicated charcoal grill at every table — steady heat, no chemicals, amplifying the natural flavour of A5 Wagyu.',
         menu_stag: 'Wagyu · Shabu & BBQ', menu_h: 'Our <em>Menu</em>', menu_sub: 'Weekday menu · All prices exclude tax · Weight refers to meat portion',
-        tab_shabu: '🍲 Shabu Shabu Hot Pot', tab_bbq: '🔥 Charcoal BBQ',
+        tab_shabu: '<span class="emo">🍲</span> Shabu Shabu Hot Pot', tab_bbq: '<span class="emo">🔥</span> Charcoal BBQ',
         set_std: 'Standard', set_dlx: 'Deluxe', set_prm: 'Premium', set_spc: 'Special',
         shabu_std_d: '3 appetisers · Wagyu sushi · Mixed hot-pot vegetables · 2 red-meat cuts · Rice · Soup · Dessert',
         shabu_dlx_d: '3 appetisers · Wagyu sushi · 2 marbled Wagyu cuts · 2 red-meat cuts · Rice · Soup · Dessert',
@@ -1929,7 +2047,7 @@
         footer_shabu: 'Shabu Shabu', footer_bbq: 'Charcoal BBQ',
         grade1: 'A5 — Maximum grade', grade2: 'Premium aging', grade3: 'Individual charcoal per table',
         scroll_hint: 'Scroll', omk_stamp: "Chef's<br>Choice",
-        tab_others: '🍽️ Others',
+        tab_others: '<span class="emo">🍽️</span> Others',
         others_app: 'Starters & Salad', others_app_desc: 'Kimchi · Yukke · Tofu · Namul · Yuba · Roast Beef Salad...', others_app_from: 'From 65K',
         others_lunch: 'Lunch Menu', others_lunch_desc: 'Hot Pot Sets · BBQ Sets · Steak Sets · Rice Sets · 11 specials', others_lunch_from: 'From 160K',
         others_drinks: 'Drinks & Dessert', others_drinks_desc: 'Japanese Whisky · Shochu · Umeshu · Beer · Non-alcoholic · Mochi...', others_drinks_from: 'From 35K',
@@ -1956,7 +2074,7 @@
         wc2_num: '02 — 技術', wc2_h: '熟成（エイジング）', wc2_p: '酵素がたんぱく質をアミノ酸に分解し、旨みが倍増。とろけるような柔らかさと繊細な香りが生まれます。',
         wc3_num: '03 — スタイル', wc3_h: '本格炭火焼き', wc3_p: '各テーブルに専用炭火コンロを設置 — 安定した熱で化学物質なし。A5和牛の自然な旨みを最大限に引き出します。',
         menu_stag: '和牛 · しゃぶしゃぶ & 炭火焼き', menu_h: 'メニュー', menu_sub: '平日メニュー · 表示価格はすべて税別 · 重量は肉の量',
-        tab_shabu: '🍲 しゃぶしゃぶ', tab_bbq: '🔥 炭火焼き',
+        tab_shabu: '<span class="emo">🍲</span> しゃぶしゃぶ', tab_bbq: '<span class="emo">🔥</span> 炭火焼き',
         set_std: 'スタンダード', set_dlx: 'デラックス', set_prm: 'プレミアム', set_spc: 'スペシャル',
         shabu_std_d: '前菜3品 · 和牛寿司 · 鍋野菜盛り · 赤身2種 · ご飯 · スープ · デザート',
         shabu_dlx_d: '前菜3品 · 和牛寿司 · 霜降り和牛2種 · 赤身2種 · ご飯 · スープ · デザート',
@@ -1995,7 +2113,7 @@
         footer_shabu: 'しゃぶしゃぶ', footer_bbq: '炭火焼き',
         grade1: 'A5 — 最高ランク', grade2: 'プレミアム熟成', grade3: '各テーブルに専用炭火',
         scroll_hint: 'スクロール', omk_stamp: 'おす<br>すめ',
-        tab_others: '🍽️ その他',
+        tab_others: '<span class="emo">🍽️</span> その他',
         others_app: '前菜 & サラダ', others_app_desc: 'キムチ · ユッケ · 豆腐 · ナムル · 湯葉 · ローストビーフサラダ...', others_app_from: '65Kから',
         others_lunch: 'ランチメニュー', others_lunch_desc: 'しゃぶしゃぶセット · BBQセット · ステーキセット · ご飯セット · 11種類', others_lunch_from: '160Kから',
         others_drinks: 'ドリンク & デザート', others_drinks_desc: 'ジャパニーズウイスキー · 焼酎 · 梅酒 · ビール · ノンアルコール · もち...', others_drinks_from: '35Kから',
@@ -2056,6 +2174,7 @@
       <img src="./assets/lau-shabu.png" alt="Wagyu trên than hoa">
     </div>
     <div class="h-dim"></div>
+    <!-- <div class="sparks" data-spark-rate="220"></div> -->
     <div class="h-body">
       <p class="h-kk" data-t="hero_kk">Wagyu Nướng Than Hoa & Shabu Shabu · Hà Nội</p>
       <h1 class="h-title"><span data-t="hero_h1">Vị ngon</span> <em data-t="hero_h2">A5</em><br><span
@@ -2105,6 +2224,7 @@
     <div class="par-dim"
       style="background:linear-gradient(to right,rgba(10,10,12,.9) 0%,rgba(10,10,12,.5) 50%,rgba(10,10,12,.08) 100%)">
     </div>
+    <div class="sparks" data-spark-rate="260"></div>
     <div class="par-ct" style="align-items:flex-start;padding-left:10%">
       <p class="stag rv" data-t="sig1_tag">Đặc trưng thứ nhất</p>
       <h2 class="sh rv d1" style="max-width:480px;font-size:clamp(34px,5.5vw,68px)" data-t="sig1_h">Wagyu
@@ -2673,6 +2793,94 @@
       en.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } })
     }, { threshold: .07 });
     document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    /* EMBER SPARKS */
+    function spawnSpark(host) {
+      const w = host.clientWidth, h = host.clientHeight;
+      if (!w || !h) return;
+      const s = document.createElement('span');
+      s.className = 'spk';
+      const size = 2 + Math.random() * 2.5;
+      const dx = (Math.random() - .5) * 140;
+      const dy = -(h * (.55 + Math.random() * .4));
+      const dur = 2.4 + Math.random() * 2.6;
+      s.style.left = (Math.random() * w) + 'px';
+      s.style.width = s.style.height = size + 'px';
+      s.style.setProperty('--dx', dx.toFixed(0) + 'px');
+      s.style.setProperty('--dy', dy.toFixed(0) + 'px');
+      s.style.setProperty('--dur', dur.toFixed(2) + 's');
+      host.appendChild(s);
+      setTimeout(() => s.remove(), dur * 1000 + 80);
+    }
+    document.querySelectorAll('.sparks').forEach(host => {
+      const rate = +host.dataset.sparkRate || 240;
+      setInterval(() => {
+        if (document.hidden) return;
+        const r = host.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > innerHeight) return;
+        spawnSpark(host);
+      }, rate);
+    });
+
+    /* ICON STEAM (🍲) */
+    function spawnEmoSteam(emo) {
+      const s = document.createElement('span');
+      s.className = 'emo-stm';
+      const size = 5 + Math.random() * 7;
+      const dx = (Math.random() - .5) * 26;
+      const dur = 1.4 + Math.random() * 1.2;
+      s.style.width = s.style.height = size + 'px';
+      s.style.marginLeft = (-size / 2) + 'px';
+      s.style.setProperty('--dx', dx.toFixed(1) + 'px');
+      s.style.setProperty('--dur', dur.toFixed(2) + 's');
+      emo.appendChild(s);
+      setTimeout(() => s.remove(), dur * 1000 + 80);
+    }
+
+    /* ICON SPARKS (🔥) */
+    function spawnEmoSpark(emo) {
+      const s = document.createElement('span');
+      s.className = 'emo-spk';
+      const size = 2 + Math.random() * 2.5;
+      const dx = (Math.random() - .5) * 32;
+      const dur = 1.2 + Math.random() * 1.2;
+      s.style.width = s.style.height = size + 'px';
+      s.style.marginLeft = (-size / 2) + 'px';
+      s.style.setProperty('--dx', dx.toFixed(1) + 'px');
+      s.style.setProperty('--dur', dur.toFixed(2) + 's');
+      emo.appendChild(s);
+      setTimeout(() => s.remove(), dur * 1000 + 60);
+    }
+
+    /* Bind a spawn fn to buttons — runs only while hovered or .on */
+    function attachEmoEffect(selector, spawnFn, rate) {
+      const timers = new Map();
+      const start = btn => {
+        if (timers.has(btn)) return;
+        const id = setInterval(() => {
+          if (document.hidden) return;
+          const emo = btn.querySelector('.emo');
+          if (emo) spawnFn(emo);
+        }, rate);
+        timers.set(btn, id);
+      };
+      const stop = btn => {
+        const id = timers.get(btn);
+        if (id) { clearInterval(id); timers.delete(btn); }
+      };
+      const sync = btn => {
+        (btn.classList.contains('on') || btn.matches(':hover')) ? start(btn) : stop(btn);
+      };
+      document.querySelectorAll(selector).forEach(btn => {
+        btn.addEventListener('mouseenter', () => start(btn));
+        btn.addEventListener('mouseleave', () => sync(btn));
+        new MutationObserver(() => sync(btn))
+          .observe(btn, { attributes: true, attributeFilter: ['class'] });
+        sync(btn);
+      });
+    }
+    attachEmoEffect('[data-t="tab_shabu"]', spawnEmoSteam, 220);
+    attachEmoEffect('[data-t="tab_bbq"]', spawnEmoSpark, 130);
 
     /* INIT lang */
     setLang('vi');
