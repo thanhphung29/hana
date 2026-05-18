@@ -295,6 +295,12 @@
       font-weight: 400
     }
 
+    .nb-logo img {
+      max-height: 44px;
+      width: auto;
+      display: block
+    }
+
     .nb-right {
       display: flex;
       align-items: center;
@@ -846,6 +852,13 @@
       letter-spacing: 2px;
       font-family: var(--sans);
       margin-top: 2px
+    }
+
+    .ci-stamp img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+      display: block
     }
 
     .cpillars {
@@ -2005,9 +2018,9 @@
         f3_tag: 'Bếp than riêng', f3_h: 'BBQ Experience', f3_d: 'Bếp than hoa cá nhân mỗi bàn',
         loc_h: 'Tìm chúng tôi tại', loc_city: 'Hà Nội',
         ik_name: 'Tên', ik_addr: 'Địa chỉ', ik_hours: 'Giờ mở', ik_book: 'Đặt bàn', ik_note: 'Lưu ý',
-        iv_name: '梅 UME Wagyu Shabu & BBQ',
-        iv_addr: 'Hà Nội (địa chỉ chính thức sẽ cập nhật)',
-        iv_hours: 'Ngày thường: 11:00–14:30 · 17:00–22:00 | Cuối tuần: 11:00–22:00',
+        iv_name: 'WAGYU SHABUSHABU & BBQ UME',
+        iv_addr: '41 Phan Kế Bính, Giảng Võ, Hà Nội',
+        iv_hours: '11:00-14:00 (last order 13:30) và 17:30-22:00 (last order 21:30)',
         iv_book: 'Facebook · Zalo', iv_note: 'Chỉ phục vụ theo đặt chỗ trước',
         sns_h: 'Kết nối với', sns_p: 'Cập nhật menu mới, ưu đãi và hình ảnh không gian.',
         fab: 'Đặt Bàn',
@@ -2072,9 +2085,9 @@
         f3_tag: 'Personal grill', f3_h: 'BBQ Experience', f3_d: 'Individual charcoal grill per table',
         loc_h: 'Find us in', loc_city: 'Hanoi',
         ik_name: 'Name', ik_addr: 'Address', ik_hours: 'Hours', ik_book: 'Reserve', ik_note: 'Note',
-        iv_name: '梅 UME Wagyu Shabu & BBQ',
-        iv_addr: 'Hanoi (exact address coming soon)',
-        iv_hours: 'Weekdays: 11:00–14:30 · 17:00–22:00 | Weekends: 11:00–22:00',
+        iv_name: 'WAGYU SHABUSHABU & BBQ UME',
+        iv_addr: '41 Phan Kế Bính, Giảng Võ, Hà Nội',
+        iv_hours: '11:00-14:00 (last order 13:30) và 17:30-22:00 (last order 21:30)',
         iv_book: 'Facebook · Zalo', iv_note: 'Reservations only — please book in advance',
         sns_h: 'Connect with', sns_p: 'Latest menus, offers and dining moments.',
         fab: 'Reserve',
@@ -2139,9 +2152,9 @@
         f3_tag: '専用炭火コンロ', f3_h: 'BBQ Experience', f3_d: '各テーブルに個別コンロ',
         loc_h: 'ハノイでのアクセス', loc_city: '',
         ik_name: '店名', ik_addr: '住所', ik_hours: '営業時間', ik_book: 'ご予約', ik_note: 'ご注意',
-        iv_name: '梅 UME 和牛しゃぶしゃぶ & 炭火焼き',
-        iv_addr: 'ハノイ（住所は近日公開）',
-        iv_hours: '平日：11:00–14:30 · 17:00–22:00｜週末：11:00–22:00',
+        iv_name: 'WAGYU SHABUSHABU & BBQ UME',
+        iv_addr: '41 Phan Kế Bính, Giảng Võ, Hà Nội',
+        iv_hours: '11:00-14:00 (last order 13:30) và 17:30-22:00 (last order 21:30)',
         iv_book: 'Facebook · Zalo', iv_note: '完全予約制 — 事前にご予約ください',
         sns_h: 'フォロー & ご予約', sns_p: '最新メニュー、特典、店内の雰囲気をお届けします。',
         fab: 'ご予約',
@@ -2183,7 +2196,9 @@
 
   <!-- NAVBAR -->
   <nav id="nb">
-    <a href="#hero" class="nb-logo"><b>梅</b>UME</a>
+    <a href="#hero" class="nb-logo">
+      <img src="./assets/logo.png" alt="">
+    </a>
     <div class="nb-right">
       <div class="lang-sw">
         <button data-lang="vi" class="on" onclick="setLang('vi')">VI</button>
@@ -2461,23 +2476,27 @@
           hoàn toàn riêng tư.</p>
       </div>
       <div class="sp-floors rv d1">
-        <div class="fc"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=85"
-            alt="Dining Room">
+        <div class="fc">
+          <!-- <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=85" alt="Dining Room"> -->
+          <img src="./assets/room1.jpg" alt="Dining Room">
           <div class="fc-ov">
             <div class="fc-tag" data-t="f1_tag">Không gian chính</div>
             <div class="fc-title" data-t="f1_h">Dining Room</div>
             <div class="fc-desc" data-t="f1_d">Thoáng đãng, ánh sáng ấm áp</div>
           </div>
         </div>
-        <div class="fc"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=85"
-            alt="Private Room">
+        <div class="fc">
+          <!-- <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=85" alt="Private Room"> -->
+          <img src="./assets/room3.jpg" alt="Private Room">
           <div class="fc-ov">
             <div class="fc-tag" data-t="f2_tag">Riêng tư tuyệt đối</div>
             <div class="fc-title" data-t="f2_h">Private Room</div>
             <div class="fc-desc" data-t="f2_d">Phù hợp tiếp khách, kỷ niệm</div>
           </div>
         </div>
-        <div class="fc"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=85" alt="BBQ">
+        <div class="fc">
+          <!-- <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=700&q=85" alt="BBQ"> -->
+          <img src="./assets/room2.jpg" alt="BBQ">
           <div class="fc-ov">
             <div class="fc-tag" data-t="f3_tag">Bếp than riêng</div>
             <div class="fc-title" data-t="f3_h">BBQ Experience</div>
@@ -2490,8 +2509,10 @@
 
   <!-- PARALLAX 3 — private room (image divider only, no text) -->
   <div class="par" id="par3">
-    <div class="par-bg" id="pb3"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=85"
-        alt="Phòng riêng UME"></div>
+    <div class="par-bg" id="pb3">
+      <!-- <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=85" alt="Phòng riêng UME"> -->
+      <img src="./assets/khong-gian.jpg" alt="Phòng riêng UME">
+    </div>
     <div class="par-dim" style="background:rgba(10,10,12,.38)"></div>
   </div>
 
@@ -2501,7 +2522,7 @@
       <div class="cg">
         <div class="ci rv">
           <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="Không gian UME">
-          <div class="ci-stamp"><span>梅</span><small>UME</small></div>
+          <div class="ci-stamp"><img src="./assets/logo2.png" alt="UME" width="96" height="96"></div>
         </div>
         <div class="rv d1">
           <p class="stag" data-t="sec_concept">Về chúng tôi</p>
@@ -2633,12 +2654,12 @@
           <p class="stag" data-t="sec_loc">Vị trí</p>
           <h2 class="sh"><span data-t="loc_h">Tìm chúng tôi tại</span> <em data-t="loc_city">Hà Nội</em></h2>
           <div style="margin-top:28px">
-            <div class="ir"><span class="ik" data-t="ik_name">Tên</span><span class="iv" data-t="iv_name">梅 UME Wagyu
-                Shabu & BBQ</span></div>
-            <div class="ir"><span class="ik" data-t="ik_addr">Địa chỉ</span><span class="iv" data-t="iv_addr">Hà Nội
-                (địa chỉ sẽ cập nhật)</span></div>
-            <div class="ir"><span class="ik" data-t="ik_hours">Giờ mở</span><span class="iv" data-t="iv_hours">Ngày
-                thường: 11:00–14:30 · 17:00–22:00 | Cuối tuần: 11:00–22:00</span></div>
+            <div class="ir"><span class="ik" data-t="ik_name">Tên</span><span class="iv" data-t="iv_name">WAGYU
+                SHABUSHABU & BBQ UME</span></div>
+            <div class="ir"><span class="ik" data-t="ik_addr">Địa chỉ</span><span class="iv" data-t="iv_addr">41 Phan
+                Kế Bính, Giảng Võ, Hà Nội</span></div>
+            <div class="ir"><span class="ik" data-t="ik_hours">Giờ mở</span><span class="iv"
+                data-t="iv_hours">11:00-14:00 (last order 13:30) và 17:30-22:00 (last order 21:30)</span></div>
             <div class="ir"><span class="ik" data-t="ik_book">Đặt bàn</span><span class="iv"><a
                   href="https://facebook.com" style="color:var(--gold)">Facebook</a> · <a href="https://zalo.me"
                   style="color:var(--gold)">Zalo</a></span></div>
@@ -2688,7 +2709,9 @@
     <div class="wrap">
       <div class="ft">
         <div>
-          <div class="fl"><b>梅</b>UME</div>
+          <div class="fl nb-logo">
+            <img src="./assets/logo.png" alt="">
+          </div>
           <p class="fd" data-t="footer_desc">Nhà hàng chuyên Wagyu Shabu Shabu & BBQ nướng than hoa. Thịt bò A5 nội địa
             Nhật Bản — không gian phòng riêng sang trọng tại Hà Nội.</p>
         </div>
@@ -2721,7 +2744,8 @@
   <!-- FLOATING CTA -->
   <div id="fab" class="show">
     <a href="#menu" class="fab-mini" aria-label="Xem thực đơn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="5" y="3" width="14" height="18" rx="1.6" />
         <path d="M9 7.5h6M9 11.5h6M9 15.5h4" />
       </svg>
