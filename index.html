@@ -1537,13 +1537,58 @@
       pointer-events: none;
       opacity: 0;
       transform: translateY(14px) scale(.9);
-      transition: opacity .4s, transform .4s
+      transition: opacity .4s, transform .4s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px
     }
 
     #fab.show {
       opacity: 1;
-      transform: none;
-      pointer-events: all
+      transform: none
+    }
+
+    #fab.show>* {
+      pointer-events: auto
+    }
+
+    .fab-mini {
+      width: 42px;
+      padding: 14px 0 16px;
+      border-radius: 999px;
+      background: rgba(10, 10, 12, .82);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: background .2s, color .2s, transform .25s;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      text-decoration: none;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase
+    }
+
+    .fab-mini span {
+      writing-mode: vertical-rl;
+      text-orientation: mixed
+    }
+
+    .fab-mini:hover {
+      background: var(--gold);
+      color: #0A0A0C;
+      transform: scale(1.06)
+    }
+
+    .fab-mini:active {
+      transform: scale(.96)
     }
 
     .fab-wrap {
@@ -1967,6 +2012,7 @@
         sns_h: 'Kết nối với', sns_p: 'Cập nhật menu mới, ưu đãi và hình ảnh không gian.',
         fab: 'Đặt Bàn',
         fab_ring: 'ĐẶT BÀN',
+        fab_menu: 'Thực Đơn',
         res_h: 'Đặt Bàn', res_p: 'Chọn kênh liên hệ — chúng tôi xác nhận trong 30 phút.',
         res_fb: 'Nhắn tin qua Facebook', res_zl: 'Nhắn tin qua Zalo', res_tel: 'Gọi điện đặt bàn',
         res_note: '※ Khuyến nghị đặt trước ít nhất 1 ngày\nNhà hàng chỉ phục vụ theo đặt chỗ',
@@ -2033,6 +2079,7 @@
         sns_h: 'Connect with', sns_p: 'Latest menus, offers and dining moments.',
         fab: 'Reserve',
         fab_ring: 'RESERVE',
+        fab_menu: 'Menu',
         res_h: 'Reserve a Table', res_p: 'Choose how to reach us — we confirm within 30 minutes.',
         res_fb: 'Message via Facebook', res_zl: 'Message via Zalo', res_tel: 'Call to reserve',
         res_note: '※ We recommend booking at least 1 day ahead\nReservations only — walk-ins not accepted',
@@ -2099,6 +2146,7 @@
         sns_h: 'フォロー & ご予約', sns_p: '最新メニュー、特典、店内の雰囲気をお届けします。',
         fab: 'ご予約',
         fab_ring: 'ご予約',
+        fab_menu: 'メニュー',
         res_h: 'ご予約', res_p: 'ご連絡方法をお選びください — 30分以内に確認します。',
         res_fb: 'Facebookでメッセージ', res_zl: 'Zaloでメッセージ', res_tel: 'お電話で予約',
         res_note: '※ 1日前までのご予約を推奨します\n完全予約制のため、当日受付はございません',
@@ -2671,7 +2719,14 @@
   </footer>
 
   <!-- FLOATING CTA -->
-  <div id="fab">
+  <div id="fab" class="show">
+    <a href="#menu" class="fab-mini" aria-label="Xem thực đơn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="5" y="3" width="14" height="18" rx="1.6" />
+        <path d="M9 7.5h6M9 11.5h6M9 15.5h4" />
+      </svg>
+      <span data-t="fab_menu">Thực Đơn</span>
+    </a>
     <div class="fab-wrap">
       <div class="fab-pulse"></div>
       <button class="fab-btn" onclick="openRes()" aria-label="Đặt bàn">
@@ -2724,7 +2779,6 @@
     /* NAV scroll */
     window.addEventListener('scroll', () => {
       document.getElementById('nb').classList.toggle('dk', scrollY > 50);
-      document.getElementById('fab').classList.toggle('show', scrollY > 300);
     }, { passive: true });
 
     /* BURGER MENU */
