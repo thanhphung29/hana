@@ -258,6 +258,30 @@
       background: rgba(200, 164, 74, .06)
     }
 
+    .menu-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px
+    }
+
+    .menu-cta .btn-g {
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 15px 28px
+    }
+
+    @media(max-width:560px) {
+      .menu-cta {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .menu-cta .btn-g {
+        justify-content: center
+      }
+    }
+
     /* ── NAVBAR (logo + lang + burger only) ── */
     #nb {
       position: fixed;
@@ -1567,41 +1591,146 @@
     }
 
     .fab-mini {
-      width: 42px;
-      padding: 14px 0 16px;
+      position: relative;
+      width: 50px;
+      padding: 12px 0 14px;
       border-radius: 999px;
-      background: rgba(10, 10, 12, .82);
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
+      background: linear-gradient(160deg, #c81a2e 0%, #9d1421 55%, #6e0d17 100%);
+      border: 1.5px solid rgba(224, 200, 112, .7);
+      color: #fff4d6;
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
       cursor: pointer;
-      transition: background .2s, color .2s, transform .25s;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      transition: transform .25s ease, box-shadow .3s ease, border-color .3s ease;
       text-decoration: none;
       font-family: var(--sans);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 3px;
-      text-transform: uppercase
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      box-shadow: 0 10px 26px rgba(157, 20, 33, .55), 0 2px 6px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .14);
+      animation: fmBreath 2.6s ease-in-out infinite;
+      overflow: hidden
+    }
+
+    .fab-mini::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 999px;
+      border: 2px solid rgba(224, 200, 112, .55);
+      opacity: 0;
+      animation: fmRing 2.4s ease-out infinite;
+      pointer-events: none
+    }
+
+    .fab-mini::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 240, 200, .35) 50%, transparent 100%);
+      animation: fmShine 3.4s ease-in-out infinite;
+      pointer-events: none
     }
 
     .fab-mini span {
       writing-mode: vertical-rl;
-      text-orientation: mixed
+      text-orientation: mixed;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .4);
+      position: relative;
+      z-index: 1
+    }
+
+    .fab-mini svg {
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .4));
+      position: relative;
+      z-index: 1
     }
 
     .fab-mini:hover {
-      background: var(--gold);
-      color: #0A0A0C;
-      transform: scale(1.06)
+      transform: translateY(-3px) scale(1.08);
+      border-color: var(--gold);
+      box-shadow: 0 16px 34px rgba(157, 20, 33, .65), 0 0 0 5px rgba(224, 200, 112, .18), inset 0 1px 0 rgba(255, 255, 255, .18);
+      animation-play-state: paused
     }
 
     .fab-mini:active {
       transform: scale(.96)
+    }
+
+    .fab-mini.fab-concept {
+      background: linear-gradient(160deg, #1a1a1f 0%, #0e0e10 55%, #050506 100%);
+      border-color: rgba(224, 200, 112, .85);
+      color: var(--gold);
+      animation: fmBreathGold 2.6s ease-in-out infinite;
+      animation-delay: -1.3s;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .55), 0 0 0 1px rgba(224, 200, 112, .12), inset 0 1px 0 rgba(255, 255, 255, .06)
+    }
+
+    .fab-mini.fab-concept::before {
+      border-color: rgba(224, 200, 112, .7)
+    }
+
+    .fab-mini.fab-concept::after {
+      background: linear-gradient(115deg, transparent 0%, rgba(224, 200, 112, .28) 50%, transparent 100%)
+    }
+
+    .fab-mini.fab-concept:hover {
+      box-shadow: 0 16px 34px rgba(0, 0, 0, .7), 0 0 0 5px rgba(224, 200, 112, .2), inset 0 1px 0 rgba(255, 255, 255, .1)
+    }
+
+    @keyframes fmBreath {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 26px rgba(157, 20, 33, .55), 0 2px 6px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .14)
+      }
+
+      50% {
+        box-shadow: 0 14px 32px rgba(200, 26, 46, .75), 0 0 0 3px rgba(224, 200, 112, .14), 0 2px 6px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 255, 255, .18)
+      }
+    }
+
+    @keyframes fmRing {
+      0% {
+        transform: scale(1);
+        opacity: .7
+      }
+
+      80%,
+      100% {
+        transform: scale(1.35);
+        opacity: 0
+      }
+    }
+
+    @keyframes fmShine {
+
+      0%,
+      60% {
+        left: -120%
+      }
+
+      100% {
+        left: 220%
+      }
+    }
+
+    @keyframes fmBreathGold {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 26px rgba(0, 0, 0, .55), 0 0 0 1px rgba(224, 200, 112, .12), inset 0 1px 0 rgba(255, 255, 255, .06)
+      }
+
+      50% {
+        box-shadow: 0 14px 32px rgba(0, 0, 0, .65), 0 0 0 3px rgba(224, 200, 112, .22), inset 0 1px 0 rgba(255, 255, 255, .1)
+      }
     }
 
     .fab-wrap {
@@ -1961,7 +2090,12 @@
       }
 
       .sb {
-        justify-content: center
+        display: grid;
+        grid-template-columns: 20px minmax(100px, auto);
+        align-items: center;
+        column-gap: 12px;
+        justify-content: center;
+        text-align: left
       }
 
       .cpillars {
@@ -2026,6 +2160,7 @@
         fab: 'Đặt Bàn',
         fab_ring: 'ĐẶT BÀN',
         fab_menu: 'Thực Đơn',
+        fab_concept: 'Concept',
         res_h: 'Đặt Bàn', res_p: 'Chọn kênh liên hệ — chúng tôi xác nhận trong 30 phút.',
         res_fb: 'Nhắn tin qua Facebook', res_zl: 'Nhắn tin qua Zalo', res_tel: 'Gọi điện đặt bàn',
         res_note: '※ Khuyến nghị đặt trước ít nhất 1 ngày\nNhà hàng chỉ phục vụ theo đặt chỗ',
@@ -2045,7 +2180,9 @@
         others_lunch: 'Menu Bữa Trưa', others_lunch_desc: 'Set Lẩu · Set BBQ · Set Steak · Set Cơm · 11 set đặc biệt', others_lunch_from: 'Từ 160K',
         others_drinks: 'Thức uống & Tráng miệng', others_drinks_desc: 'Whiskey Nhật · Shochu · Rượu Mơ · Bia · Không cồn · Mochi...', others_drinks_from: 'Từ 35K',
         menu_full_note: 'Bao gồm: Thịt hiếm · Bữa trưa · Thức uống · Tráng miệng và nhiều hơn nữa',
-        menu_full_btn: 'Xem Thực Đơn Đầy Đủ →',
+        menu_btn_weekday: 'Thực Đơn Trong Tuần →',
+        menu_btn_weekend: 'Thực Đơn Cuối Tuần & Lễ →',
+        menu_btn_takeout: 'Mang Về →',
       },
       en: {
         nav_concept: 'Concept', nav_menu: 'Menu', nav_space: 'Our Space', nav_gallery: 'Gallery', nav_loc: 'Location', nav_res: 'Reserve',
@@ -2093,6 +2230,7 @@
         fab: 'Reserve',
         fab_ring: 'RESERVE',
         fab_menu: 'Menu',
+        fab_concept: 'Concept',
         res_h: 'Reserve a Table', res_p: 'Choose how to reach us — we confirm within 30 minutes.',
         res_fb: 'Message via Facebook', res_zl: 'Message via Zalo', res_tel: 'Call to reserve',
         res_note: '※ We recommend booking at least 1 day ahead\nReservations only — walk-ins not accepted',
@@ -2112,7 +2250,9 @@
         others_lunch: 'Lunch Menu', others_lunch_desc: 'Hot Pot Sets · BBQ Sets · Steak Sets · Rice Sets · 11 specials', others_lunch_from: 'From 160K',
         others_drinks: 'Drinks & Dessert', others_drinks_desc: 'Japanese Whisky · Shochu · Umeshu · Beer · Non-alcoholic · Mochi...', others_drinks_from: 'From 35K',
         menu_full_note: 'Includes: Rare cuts · Lunch menu · Drinks · Dessert and more',
-        menu_full_btn: 'View Full Menu →',
+        menu_btn_weekday: 'Weekday Menu →',
+        menu_btn_weekend: 'Weekend & Holiday Menu →',
+        menu_btn_takeout: 'Takeout →',
       },
       ja: {
         nav_concept: 'コンセプト', nav_menu: 'メニュー', nav_space: '店内空間', nav_gallery: 'ギャラリー', nav_loc: 'アクセス', nav_res: 'ご予約',
@@ -2160,6 +2300,7 @@
         fab: 'ご予約',
         fab_ring: 'ご予約',
         fab_menu: 'メニュー',
+        fab_concept: 'コンセプト',
         res_h: 'ご予約', res_p: 'ご連絡方法をお選びください — 30分以内に確認します。',
         res_fb: 'Facebookでメッセージ', res_zl: 'Zaloでメッセージ', res_tel: 'お電話で予約',
         res_note: '※ 1日前までのご予約を推奨します\n完全予約制のため、当日受付はございません',
@@ -2179,7 +2320,9 @@
         others_lunch: 'ランチメニュー', others_lunch_desc: 'しゃぶしゃぶセット · BBQセット · ステーキセット · ご飯セット · 11種類', others_lunch_from: '160Kから',
         others_drinks: 'ドリンク & デザート', others_drinks_desc: 'ジャパニーズウイスキー · 焼酎 · 梅酒 · ビール · ノンアルコール · もち...', others_drinks_from: '35Kから',
         menu_full_note: '希少部位 · ランチメニュー · ドリンク · デザートなど全品掲載',
-        menu_full_btn: 'フルメニューを見る →',
+        menu_btn_weekday: '平日メニュー →',
+        menu_btn_weekend: '週末・祝日メニュー →',
+        menu_btn_takeout: 'テイクアウト →',
       }
     };
     let lang = 'vi';
@@ -2433,12 +2576,15 @@
         <p class="mn" data-t="menu_note">※ Giá chưa bao gồm thuế · Trọng lượng tính theo phần thịt</p>
       </div><!-- /others -->
 
-      <!-- VIEW FULL MENU BUTTON -->
+      <!-- MENU CTA BUTTONS -->
       <div class="rv" style="text-align:center;margin-top:40px;padding-top:36px;border-top:1px solid var(--bdr)">
-        <p style="font-size:12px;color:var(--dim);margin-bottom:18px;letter-spacing:1px;font-family:var(--sans)"
+        <p style="font-size:12px;color:var(--dim);margin-bottom:22px;letter-spacing:1px;font-family:var(--sans)"
           data-t="menu_full_note">Bao gồm: Thịt hiếm · Bữa trưa · Thức uống · Tráng miệng và nhiều hơn nữa</p>
-        <a href="UmeNoHana_Menu.html" class="btn-g" style="font-size:12px;letter-spacing:2px;padding:16px 36px"
-          data-t="menu_full_btn">Xem Thực Đơn Đầy Đủ →</a>
+        <div class="menu-cta">
+          <a href="#" class="btn-g" data-t="menu_btn_weekday">Thực Đơn Trong Tuần →</a>
+          <a href="#" class="btn-g" data-t="menu_btn_weekend">Thực Đơn Cuối Tuần &amp; Lễ →</a>
+          <a href="#" class="btn-g" data-t="menu_btn_takeout">Mang Về →</a>
+        </div>
       </div>
 
     </div>
@@ -2743,6 +2889,15 @@
 
   <!-- FLOATING CTA -->
   <div id="fab" class="show">
+    <a href="#concept" class="fab-mini fab-concept" aria-label="Giới thiệu Concept">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3a6.5 6.5 0 0 0-3.6 11.9c.5.3.8.9.8 1.5V18h5.6v-1.6c0-.6.3-1.2.8-1.5A6.5 6.5 0 0 0 12 3Z"
+          fill="#E0C870" fill-opacity=".25" />
+        <path d="M9.5 21h5M10.5 18.5h3" />
+      </svg>
+      <span data-t="fab_concept">Concept</span>
+    </a>
     <a href="#menu" class="fab-mini" aria-label="Xem thực đơn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
